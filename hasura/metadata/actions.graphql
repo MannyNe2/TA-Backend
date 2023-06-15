@@ -1,0 +1,47 @@
+type Query {
+  signIn(
+    address: String!
+    password: String!
+  ): UserInfo
+}
+
+type Mutation {
+  signUp(
+    first_name: String!
+    middle_name: String!
+    last_name: String!
+    phone: String!
+    email: String
+    password: String!
+  ): UserCredentials
+}
+
+type Mutation {
+  ticketBought(
+    userId: uuid!
+    userPhone: String!
+    ticketId: uuid!
+    providerName: String!
+  ): TicketInfo
+}
+
+type UserCredentials {
+  accessToken: String!
+  userId: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+}
+
+type UserInfo {
+  accessToken: String!
+  userId: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+}
+
+type TicketInfo {
+  ticketNumber: String!
+}
+

@@ -1,0 +1,40 @@
+actions:
+  - name: signIn
+    definition:
+      kind: ""
+      handler: '{{ACTION_BASE_URL}}/v1/auth/signIn'
+      headers:
+        - name: ACTION_SECRET
+          value_from_env: ACTION_SECRET
+    permissions:
+      - role: anonymous
+    comment: Sign in action
+  - name: signUp
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_URL}}/v1/auth/signUp'
+      headers:
+        - name: ACTION_SECRET
+          value_from_env: ACTION_SECRET
+    permissions:
+      - role: anonymous
+    comment: Sign up action
+  - name: ticketBought
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_URL}}/v1/tickets/ticketBought'
+      headers:
+        - name: ACTION_SECRET
+          value_from_env: ACTION_SECRET
+    permissions:
+      - role: user
+      - role: anonymous
+    comment: Bought ticket
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+    - name: UserCredentials
+    - name: UserInfo
+    - name: TicketInfo
+  scalars: []

@@ -1,0 +1,8 @@
+table:
+  schema: hindeke_db
+  name: user_type
+is_enum: true
+configuration:
+  custom_root_fields: {}
+  custom_name: user_type
+  custom_column_names: {}

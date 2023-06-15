@@ -1,0 +1,7 @@
+table:
+  schema: hindeke_db
+  name: selam_tickets_log
+configuration:
+  custom_root_fields: {}
+  custom_name: selam_tickets_log
+  custom_column_names: {}

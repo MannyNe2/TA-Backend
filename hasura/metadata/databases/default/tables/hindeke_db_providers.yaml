@@ -1,0 +1,15 @@
+table:
+  schema: hindeke_db
+  name: providers
+configuration:
+  custom_root_fields: {}
+  custom_name: providers
+  custom_column_names: {}
+array_relationships:
+  - name: buses_availables
+    using:
+      foreign_key_constraint_on:
+        column: provider_id
+        table:
+          schema: hindeke_db
+          name: buses_available

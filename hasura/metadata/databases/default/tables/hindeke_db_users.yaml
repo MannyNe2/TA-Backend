@@ -1,0 +1,56 @@
+table:
+  schema: hindeke_db
+  name: users
+configuration:
+  custom_root_fields: {}
+  custom_name: users
+  custom_column_names: {}
+insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+        - email
+        - first_name
+        - last_name
+        - middle_name
+        - password
+        - phone
+      backend_only: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - email
+        - first_name
+        - id
+        - last_name
+        - middle_name
+        - password
+        - phone
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      limit: 1
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - email
+        - first_name
+        - last_name
+        - middle_name
+        - password
+        - phone
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check:
+        id:
+          _eq: X-Hasura-User-Id
+delete_permissions:
+  - role: user
+    permission:
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
