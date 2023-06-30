@@ -14,9 +14,16 @@ select_permissions:
     permission:
       columns:
         - accomodations
+        - car_type
+        - seat_size
       filter: {}
   - role: user
     permission:
       columns:
         - accomodations
+        - car_type
+        - id
+        - license_plate
+        - seat_size
+        - side_number
       filter: {}

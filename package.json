@@ -7,11 +7,10 @@
     "author": "MannyNe <amannnegussie2@outlook.com>",
     "license": "ISC",
     "scripts": {
-        "dev": "docker-compose -f db/docker-compose.yaml up -d && docker-compose up -d && yarn all:log",
+        "dev": "docker-compose up -d && yarn all:log",
         "redev": "yarn down && yarn dev",
         "fill": "yarn migrate && yarn seed",
-        "metaseed": "yarn hasura migrate apply && yarn hasura seed apply && yarn hasura metadata apply",
-        "down": "docker-compose -f db/docker-compose.yaml down && docker-compose down",
+        "down": "docker-compose down",
         "api:up": "docker-compose up -d",
         "db": "docker-compose -f db/docker-compose.yaml up -d",
         "db:down": "docker-compose -f db/docker-compose.yaml down",
@@ -20,15 +19,16 @@
         "hasura:prod": "hasura --project hasura --envfile ../.env.production",
         "hasura:init": "hasura init hasura",
         "console": "yarn hasura console --envfile ../.env",
+        "console:prod": "yarn hasura:prod --endpoint https://webb.abro.et console",
         "migrate": "yarn hasura migrate apply && yarn hasura metadata apply",
-        "migrate:prod": "yarn hasura:prod migrate apply && yarn hasura:prod metadata apply",
+        "migrate:prod": "yarn hasura:prod --endpoint https://webb.abro.et migrate apply && yarn hasura:prod --endpoint https://webb.abro.et metadata apply",
         "migrate:status": "yarn hasura migrate status",
-        "rebuild": "docker-compose build hindeke_express && yarn dev",
+        "rebuild": "docker-compose build crowdfunding_express && yarn dev",
         "service:dev": "yarn nodemon server.js",
         "clean-dangling": "docker rmi $(docker images -f \"dangling=true\" -q)",
         "prune-volumes": "docker volume prune",
         "clean": "yarn clean-dangling && yarn prune-volumes",
-        "seed": "yarn hasura seeds apply"
+        "seed:prod": "yarn hasura:prod --endpoint https://webb.abro.et seeds apply"
     },
     "devDependencies": {
         "hasura-cli": "^2.9.0",

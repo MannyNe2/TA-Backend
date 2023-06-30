@@ -13,3 +13,14 @@ array_relationships:
         table:
           schema: hindeke_db
           name: buses_available
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - provider_name
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - provider_name
+      filter: {}

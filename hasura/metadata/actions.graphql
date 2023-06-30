@@ -37,7 +37,9 @@ type UserInfo {
   accessToken: String!
   userId: String!
   firstName: String!
+  middleName: String
   lastName: String!
+  phone: String!
   role: String!
 }
 

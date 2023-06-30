@@ -1,0 +1,33 @@
+table:
+  schema: hindeke_db
+  name: transaction
+configuration:
+  custom_root_fields: {}
+  custom_name: transaction
+  custom_column_names: {}
+object_relationships:
+  - name: tickets_available
+    using:
+      foreign_key_constraint_on: ticket_id
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - amount
+        - status
+        - ticket_id
+        - user
+      backend_only: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - amount
+        - id
+        - status
+        - ticket_id
+        - user
+      filter:
+        user:
+          _eq: X-Hasura-User-Id

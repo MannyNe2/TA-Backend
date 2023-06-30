@@ -16,6 +16,7 @@ select_permissions:
         - bus_id
         - departure_date
         - destination
+        - id
         - price
         - seats_left
         - start_location
@@ -26,6 +27,7 @@ select_permissions:
         - bus_id
         - departure_date
         - destination
+        - id
         - price
         - seats_left
         - start_location

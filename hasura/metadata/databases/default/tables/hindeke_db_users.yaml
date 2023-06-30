@@ -16,6 +16,7 @@ insert_permissions:
         - middle_name
         - password
         - phone
+        - role
       backend_only: false
 select_permissions:
   - role: user
@@ -28,6 +29,7 @@ select_permissions:
         - middle_name
         - password
         - phone
+        - role
       filter:
         id:
           _eq: X-Hasura-User-Id
